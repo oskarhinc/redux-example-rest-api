@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { simpleAction } from './actions/simpleAction';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { Row, Col } from 'react-bootstrap';
 import NavCard from './components/shared/NavCard';
 
 class App extends Component {
-  simpleAction = (event) => {
-    this.props.simpleAction();
-  }
-
   render() {
     return (
       <div className="App">
@@ -28,11 +23,9 @@ class App extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  simpleAction: () => dispatch(simpleAction())
 })
 
 const mapStateToProps = state => ({
-  ...state
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
