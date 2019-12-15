@@ -3,12 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { Provider } from 'react-redux'
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import configureStore from './store';
+import EmployeesList from './components/employess/EmployeesList';
 
 ReactDOM.render(
     <Provider store={configureStore()}>
-        <App />
+        <Router>
+            <Route exact path="/employees-list" component={EmployeesList} />
+            <Route exact path="/" component={App} />
+        </Router>
     </Provider>,
     document.getElementById('root')
 );

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { simpleAction } from './actions/simpleAction';
-import logo from './logo.svg';
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button } from 'react-bootstrap';
+import './App.css';
+import { Row, Col } from 'react-bootstrap';
+import NavCard from './components/shared/NavCard';
 
 class App extends Component {
   simpleAction = (event) => {
@@ -14,19 +14,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <pre>
-          {
-            JSON.stringify(this.props)
-          }
-        </pre>
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-          <Button onClick={this.simpleAction}>Test redux action</Button>
+          <h1 className="App-title">Choose where you want to go</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload
-    </p>
+        <Row className="justify-content-md-center">
+          <Col md="auto">
+            <NavCard title="Employees List" description="Get all employee data" link="/employees-list" />
+          </Col>
+        </Row>
       </div>
     );
   }
